@@ -16,21 +16,12 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This will link to a home page, where you can sync the sqlite database with anime-offline-database.jsonl and Anilist's API, and the actual game.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The process of syncing the entire Anilist database with the anime-offline-database is due to the code coalescing anime season into a single entry, linked to the earliest season of each anime. This can take anywhere from 20h to multiple days depending on the state of Anilist's API.
 
-## Learn More
+## Known bugs
 
-To learn more about Next.js, take a look at the following resources:
+The animes are not selected by their series_id, but by their own id, completely defeating the intended purpose of the sync.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Some animes are absent in Anilist's database, which 99% of the time is okay. For the purposes of this game, we won't really need to have as a game option an old obscure anime. HOWEVER, this applies to some cases where it would make sense, for example, at the time of writing (2026/03/14), JoJo Stone Ocean Part 3 isn't present in Anilist, as it seems to group it together with part 2, and it is an anime present in some of the players's MAL anime list.
